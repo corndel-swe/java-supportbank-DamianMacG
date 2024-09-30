@@ -4,7 +4,7 @@ package com.corndel.supportbank.exercises;
  import picocli.CommandLine.Command;
  import picocli.CommandLine.Parameters;
 
-@Command(name = "hello", description = "Hello World CLI")
+@Command(name = "hello", description = "Hello World CLI", subcommands = {ColorCommand.class})
 
 public class HelloWorld implements Runnable{
 

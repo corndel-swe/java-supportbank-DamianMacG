@@ -82,16 +82,16 @@ specifications:
 In `exercises/ColorCommand` you will find a subcommand. All we need to do is
 attach it to the `HelloWorld` app!
 
-- [ ] Read the notes on
+- [x] Read the notes on
       [adding subcommands](https://tech-docs.corndel.com/java/adding-subcommands.html)
 
-- [ ] Take a look at the `exercises/ColorCommand` file. Uncomment the whole
+- [x] Take a look at the `exercises/ColorCommand` file. Uncomment the whole
       file. (`Ctrl + A` to select all, and `Ctrl + /` to toggle comment.)
 
-- [ ] Add the `ColorCommand` subcommand to the `HelloWorld` app by including it
+- [x] Add the `ColorCommand` subcommand to the `HelloWorld` app by including it
       in the `subcommands` argument.
 
-- [ ] Run `./mvnw test -DTest="D1E4Test"` to check it's right, then commit and
+- [x] Run `./mvnw test -DTest="D1E4Test"` to check it's right, then commit and
       push
 
 > [!NOTE]
