@@ -6,19 +6,19 @@ the steps required to get this repo working.
 
 ## Exercise 1: Setting up the project
 
-- [ ] Read the docs on
+- [x] Read the docs on
       [Creating a Maven project](https://tech-docs.corndel.com/java/creating-projects.html).
 
 The rest of the steps have been done in this repo, but `picocli` hasn't been
 added!
 
-- [ ] Add the `picocli`
+- [x] Add the `picocli`
       [dependency](https://tech-docs.corndel.com/java/creating-projects.html#adding-dependencies)
       to the `pom.xml` file
 
-- [ ] Run `./mvnw clean compile`
+- [x] Run `./mvnw clean compile`
 
-- [ ] Run `./mvnw test -DTest="D1E1Test"` to check it's right, then commit and
+- [x] Run `./mvnw test -DTest="D1E1Test"` to check it's right, then commit and
       push
 
 ## Exercise 2: Creating a CLI

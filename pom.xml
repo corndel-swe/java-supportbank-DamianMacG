@@ -13,7 +13,11 @@
   </licenses>
   <properties></properties>
   <dependencies>
-    <!-- TODO: Add the picocli dependency -->
+    <dependency>
+      <groupId>info.picocli</groupId>
+      <artifactId>picocli</artifactId>
+      <version>4.7.6</version>
+    </dependency>
     <!-- https://tech-docs.corndel.com/java/making-a-cli.html#installing-picocli -->
 
     <dependency>
@@ -55,6 +59,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
 
   <build>
     <plugins>
