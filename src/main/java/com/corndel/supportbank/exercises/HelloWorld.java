@@ -8,11 +8,12 @@ package com.corndel.supportbank.exercises;
 
 public class HelloWorld implements Runnable{
 
-
+    @Parameters(index = "0", defaultValue = "World")
+    private String name;
 
     @Override
     public void run() {
-        System.out.println("Hello, World!");
+        System.out.println("Hello, " + name + "!");
     }
 
     public static void main(String[] args) {

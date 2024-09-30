@@ -54,19 +54,19 @@ specifications:
 > ./mvnw exec:java -Phelloworld
 > ```
 
-- [ ] Run `./mvnw test -DTest="D1E2Test"` to check it's right, then commit and
+- [x] Run `./mvnw test -DTest="D1E2Test"` to check it's right, then commit and
       push
 
 ## Exercise 3: Adding params
 
-- [ ] Add a `@Parameter` to the `HelloWorld` class
+- [x] Add a `@Parameter` to the `HelloWorld` class
 
-- [ ] Make sure the `index` is `0`
+- [x] Make sure the `index` is `0`
 
-- [ ] Set `defaultValue = "World"` in the parameter to ensure that Exercise 2
+- [x] Set `defaultValue = "World"` in the parameter to ensure that Exercise 2
       doesn't break!
 
-- [ ] Run `./mvnw test -DTest="D1E3Test"` to check it's right, then commit and
+- [x] Run `./mvnw test -DTest="D1E3Test"` to check it's right, then commit and
       push
 
 > [!TIP]
