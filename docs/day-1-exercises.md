@@ -23,7 +23,7 @@ added!
 
 ## Exercise 2: Creating a CLI
 
-- [ ] Read the docs on
+- [x] Read the docs on
       [creating a CLI](https://tech-docs.corndel.com/java/making-a-cli.html)
 
 There is a file in `exercises/HelloWorld.java` where we will create a simple
@@ -32,17 +32,17 @@ CLI.
 Use `picocli` just like in the video to create a CLI according to the following
 specifications:
 
-- [ ] Import `picocli.CommandLine` and `picocli.CommandLine.Command`
+- [x] Import `picocli.CommandLine` and `picocli.CommandLine.Command`
 
-- [ ] Use the `@Command` decorator, making sure the `name` is `"hello"`
+- [x] Use the `@Command` decorator, making sure the `name` is `"hello"`
 
-- [ ] Make sure the `Hello` class implements runnable and `@Override`s the
+- [x] Make sure the `Hello` class implements runnable and `@Override`s the
       `run()` method
 
-- [ ] The `run()` should simply print `"Hello, World!"` (this is
+- [x] The `run()` should simply print `"Hello, World!"` (this is
       case-sensitive!)
 
-- [ ] In the `main()` method, create and execute the CLI and call `System.exit`
+- [x] In the `main()` method, create and execute the CLI and call `System.exit`
       with the exit code
 
 > [!TIP]
