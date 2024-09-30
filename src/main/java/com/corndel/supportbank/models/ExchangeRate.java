@@ -1,8 +1,5 @@
 package com.corndel.supportbank.models;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ExchangeRate {
 
 
