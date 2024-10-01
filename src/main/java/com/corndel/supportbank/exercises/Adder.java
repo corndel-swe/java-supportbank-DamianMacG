@@ -2,7 +2,15 @@ package com.corndel.supportbank.exercises;
 
 // import java.nio.file.*;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
 public class Adder {
+
+  private Path filePath;
   /**
    * This method reads a file line by line and adds up the numbers on each line.
    * It uses try/catch to print "Something went wrong" and
@@ -15,12 +23,28 @@ public class Adder {
     // TODO: Read the file
     // Hint: Use Paths.get() and Files.readAllLines()
 
+    int sum = 0;
+
     // TODO: Add up the numbers
     // Hint: Use a loop
     // Hint: Use Integer.parseInt
 
+    try {
+      // Reading the file
+      this.filePath = Paths.get("src", "data", fileName);
+      List<String> lines = Files.readAllLines(this.filePath);
+
+      // Adding up the numbers
+      for (String line : lines) {
+        sum += Integer.parseInt(line);  // Parsing each line to an integer and adding to sum
+      }
+    } catch (IOException e) {
+      System.out.println(("ERRORRRR"));
+    }
+
+
     // TODO: Return the sum
-    return 0;
+    return sum;
   }
 
   /**

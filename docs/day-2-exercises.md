@@ -10,13 +10,13 @@ String id = new UserId("abcd123");
 boolean isValid = id.validate();
 ```
 
-- [ ] Read the docs on
+- [x] Read the docs on
       [Handling Errors](https://tech-docs.corndel.com/java/handling-errors.html)
 
-- [ ] In `UserId.java`, follow the instructions to throw errors with the correct
+- [x] In `UserId.java`, follow the instructions to throw errors with the correct
       messages under different conditions.
 
-- [ ] Make sure to test, commit and push!
+- [x] Make sure to test, commit and push!
 
 ## Exercise 2: File I/O
 
@@ -24,7 +24,7 @@ In this exercise, we'll be working in `exercises/Adder.java` to add together all
 the numbers in a file such as `src/data/nums.txt`. Each row contains a single
 integer.
 
-- [ ] Have a look at
+- [x] Have a look at
       [Reading and Writing Files](https://tech-docs.corndel.com/java/file-io.html).
 
 > [!IMPORTANT]
