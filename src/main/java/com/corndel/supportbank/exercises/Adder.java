@@ -39,7 +39,8 @@ public class Adder {
         sum += Integer.parseInt(line);  // Parsing each line to an integer and adding to sum
       }
     } catch (IOException e) {
-      System.out.println(("ERRORRRR"));
+      System.err.println(("Something went wrong"));
+      return 0;
     }
 
 

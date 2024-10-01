@@ -33,12 +33,12 @@ integer.
 > `src/data` directory (or a subdirectory). When constructing your filepath, you
 > should construct it as "src/data/..." like we do in the docs.
 
-- [ ] In `Adder.java`, complete the `add` method to return the sum of the
+- [x] In `Adder.java`, complete the `add` method to return the sum of the
       numbers in the given file. There are hints in the file to follow. (Note
       that it isn't necessary to create a `FileIO` class in order to pass this
       exercise, just follow the hints given to read the file directly.)
 
-- [ ] Wrap your logic in a `try/catch` block and, in case of failure:
+- [x] Wrap your logic in a `try/catch` block and, in case of failure:
 
   - use `System.err.println` to print the message `"Something went wrong"`
 
