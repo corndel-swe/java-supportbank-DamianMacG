@@ -17,12 +17,19 @@ public class InvestmentService implements Runnable {
     @CommandLine.Parameters(index = "2", description = "Time in years")
     private int time;
 
+    @CommandLine.Parameters(index = "3", description = "Times compounded per year")
+    private int timesCompoundedPerYear;
+
     @Override
     public void run() {
-        // Create an instance of the Investment model
         Investment investment = new Investment(principal, rate, time);
 
-        // Use the model to calculate interest and total amount
-        System.out.println(investment); // toString() of Investment will be called
+        // Calculate compound interest and total amount
+        double interest = investment.calculateCompoundInterest(timesCompoundedPerYear);
+        double totalAmount = principal + interest;
+
+        System.out.printf("Investing %.2f at %.2f%% compounded %d times per year for %d years will earn %.2f in interest.%n",
+                principal, rate, timesCompoundedPerYear, time, interest);
+        System.out.printf("Total amount after %d years: %.2f%n", time, totalAmount);
     }
 }
