@@ -53,18 +53,18 @@ such as `helium.json`. These JSON files are located in `src/data/elements`. The
 method's purpose is to create an instance of `Element` based on the data in the
 file.
 
-- [ ] Read the docs on
+- [ x Read the docs on
       [working with JSON](https://tech-docs.corndel.com/java/working-with-json.html)
 
-- [ ] Use the `nio` library to read the element file specified by the filename,
+- [x] Use the `nio` library to read the element file specified by the filename,
       e.g. `helium.json`.
 
-- [ ] Join the data in the file into a single JSON string.
+- [x] Join the data in the file into a single JSON string.
 
-- [ ] Use Jackson's `ObjectMapper` to convert the JSON string into an instance
+- [x] Use Jackson's `ObjectMapper` to convert the JSON string into an instance
       of `Element`.
 
-- [ ] Return the newly created element.
+- [x] Return the newly created element.
 
 Feel free to rethrow any errors, they're handled by the tests.
 
