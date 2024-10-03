@@ -1,26 +1,70 @@
 package com.corndel.supportbank.services;
 
-import com.corndel.supportbank.models.ExchangeRate;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.cdimascio.dotenv.Dotenv;
+import kong.unirest.Unirest;
 import picocli.CommandLine;
+import picocli.CommandLine.Parameters;
+import picocli.CommandLine.Command;
 
-@CommandLine.Command(name = "convert")
-public class CurrencyService implements Runnable {
-    @CommandLine.Parameters(index = "0")
+import java.sql.SQLOutput;
+
+@Command(name = "convert")
+public class CurrencyService implements Runnable{
+
+    @Parameters(index = "0", description = "The amount being divided")
     private double amount;
 
-    @CommandLine.Parameters(index = "1")
-    private String from;
+    @Parameters(index = "1", description = "Currency1")
+    private String fromCurrency;
 
-    @CommandLine.Parameters(index = "2")
-    private String to;
+    @Parameters(index = "2", description = "Currency2")
+    private String toCurrency;
 
     @Override
     public void run() {
-        ExchangeRate exchangeRate = new ExchangeRate();
-        double rate = exchangeRate.getRate(from, to);
-        double convertedAmount = exchangeRate.convert(from, to, amount);
+        double convertedAmount = 0;
+        try {
+            convertedAmount = convertCurrency(amount, fromCurrency, toCurrency);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        if (convertedAmount == -1) {
+            System.out.println("Error: Invalid currency specified.");
+        } else {
+            String msg = String.format("%.2f %s is equivalent to %.2f %s", amount, fromCurrency, convertedAmount, toCurrency);
+            System.out.println(msg);
+        }
+    }
 
-        System.out.printf("Converting %.2f %s to %.2f %s at an exchange rate of %.2f%n",
-                amount, from, convertedAmount, to, rate);
+    private double convertCurrency(double amount, String fromCurrency, String toCurrency) throws Exception{
+
+        Dotenv dotenv = Dotenv.load();
+        String ApiKey = dotenv.get("OPEN_EXCHANGE_RATES_APP_ID");
+
+        String url = String.format("https://openexchangerates.org/api/latest.json?app_id=%s", ApiKey);
+
+        var response = Unirest
+                .get(url)
+                .header("Accept", "application/json")
+                .asString();
+
+        String json = response.getBody();
+
+        ObjectMapper mapper = new ObjectMapper();
+        var tree = mapper.readTree(json);
+
+        if (tree.get("rates").get(fromCurrency) == null || tree.get("rates").get(toCurrency) == null) {
+            throw new Exception("Currency does not exist");
+        }
+
+        double fromConversion = tree.get("rates")
+                .get(fromCurrency).asDouble();
+
+        double toConversion = tree.get("rates")
+                .get(toCurrency).asDouble();
+
+
+        return (amount / fromConversion) * toConversion;
     }
 }
