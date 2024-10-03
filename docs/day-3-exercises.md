@@ -2,18 +2,18 @@
 
 ## Exercise 1: Environment variables
 
-- [ ] Have a look at the documentation on
+- [x] Have a look at the documentation on
       [environment variables](https://tech-docs.corndel.com/java/environment-variables.html)
 
-- [ ] Create a `.env` file in the root of your project
+- [x] Create a `.env` file in the root of your project
 
-- [ ] Add the following environment variable:
+- [x] Add the following environment variable:
 
 ```
 SECRET_PASSWORD=opensesame
 ```
 
-- [ ] Test, commit and push!
+- [x] Test, commit and push!
 
 ## Exercise 2: GET Requests
 
