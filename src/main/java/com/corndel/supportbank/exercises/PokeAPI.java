@@ -21,6 +21,8 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 record Pokemon(Integer id, String name, Integer height, Integer weight) {
 
+
+
   public String summary() {
     return String.format("Meet %s! This Pokémon has an ID of %d. It stands %d decimetres tall and weighs %d hectograms.",
             name.substring(0, 1).toUpperCase() + name.substring(1), id, height, weight);
@@ -63,8 +65,8 @@ public class PokeAPI {
     return pokemon;
   }
 
-  public static List<Pokemon> getAllPokemons() throws Exception {
-    String url = "https://pokeapi.co/api/v2/pokemon?limit=100"; // Adjust limit as needed
+  public static List<String> getAllPokemonNames() throws Exception {
+    String url = "https://pokeapi.co/api/v2/pokemon?limit=10"; // Adjust limit as needed
     var response = Unirest
             .get(url)
             .header("Accept", "application/json")
@@ -73,18 +75,17 @@ public class PokeAPI {
     String json = response.getBody();
     ObjectMapper objectMapper = new ObjectMapper();
     JsonNode rootNode = objectMapper.readTree(json);
-    JsonNode resultsNode = rootNode.get("results"); // Access the "results" array
+    System.out.println(rootNode);
 
-    List<Pokemon> pokemons = new ArrayList<>();
+    // Create a list to store Pokémon names
+    List<String> pokemonNames = new ArrayList<>();
 
-    // Iterate through the results and extract the names
-    for (JsonNode node : resultsNode) {
-      String name = node.get("name").asText(); // Get the name of the Pokémon
-      Pokemon pokemon = getPokemonByName(name); // Fetch the full Pokémon object
-      pokemons.add(pokemon); // Add the Pokémon to the list
+    // Extract the names from the results
+    for (JsonNode resultNode : rootNode.path("results")) {
+      pokemonNames.add(resultNode.path("name").asText());
     }
 
-    return pokemons;
+    return pokemonNames;
   }
 
   /**
@@ -95,12 +96,12 @@ public class PokeAPI {
       // Get a specific Pokémon
       Pokemon pokemon = getPokemonByName("pikachu");
       System.out.println(pokemon);
-      System.out.println(pokemon.summary()); // Using summary string
+      System.out.println(pokemon.summary());
 
       // Get all Pokémon names
-      List<Pokemon> allPokemons = getAllPokemons();
-      System.out.println("All Pokémon:");
-      for (Pokemon name : allPokemons) {
+      List<String> allPokemonNames = getAllPokemonNames();
+      System.out.println("All Pokémon names:");
+      for (String name : allPokemonNames) {
         System.out.println(name);
       }
     } catch (Exception e) {
