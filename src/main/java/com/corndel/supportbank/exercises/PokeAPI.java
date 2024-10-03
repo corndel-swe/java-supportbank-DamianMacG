@@ -5,8 +5,12 @@ package com.corndel.supportbank.exercises;
 // import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kong.unirest.Unirest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class represents a Pokemon. It uses Java's record syntax to
@@ -59,14 +63,46 @@ public class PokeAPI {
     return pokemon;
   }
 
+  public static List<Pokemon> getAllPokemons() throws Exception {
+    String url = "https://pokeapi.co/api/v2/pokemon?limit=100"; // Adjust limit as needed
+    var response = Unirest
+            .get(url)
+            .header("Accept", "application/json")
+            .asString();
+
+    String json = response.getBody();
+    ObjectMapper objectMapper = new ObjectMapper();
+    JsonNode rootNode = objectMapper.readTree(json);
+    JsonNode resultsNode = rootNode.get("results"); // Access the "results" array
+
+    List<Pokemon> pokemons = new ArrayList<>();
+
+    // Iterate through the results and extract the names
+    for (JsonNode node : resultsNode) {
+      String name = node.get("name").asText(); // Get the name of the Pokémon
+      Pokemon pokemon = getPokemonByName(name); // Fetch the full Pokémon object
+      pokemons.add(pokemon); // Add the Pokémon to the list
+    }
+
+    return pokemons;
+  }
+
   /**
    * For debugging purposes..
    */
   public static void main(String[] args) {
     try {
+      // Get a specific Pokémon
       Pokemon pokemon = getPokemonByName("pikachu");
       System.out.println(pokemon);
-      System.out.println(pokemon.summary()); // using summary string
+      System.out.println(pokemon.summary()); // Using summary string
+
+      // Get all Pokémon names
+      List<Pokemon> allPokemons = getAllPokemons();
+      System.out.println("All Pokémon:");
+      for (Pokemon name : allPokemons) {
+        System.out.println(name);
+      }
     } catch (Exception e) {
       e.printStackTrace();
     }
