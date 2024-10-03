@@ -36,17 +36,17 @@ In this exercise, we'll be fetching data from the
 
 ## Exercise 3: POST Requests
 
-- [ ] Have a look at the documentation on
+- [x] Have a look at the documentation on
       [posting data](https://tech-docs.corndel.com/java/http-post.html)
 
-- [ ] Open `exercises/Postman.java`
+- [x] Open `exercises/Postman.java`
 
-- [ ] Use the `id` and `content` arguments to create a new `Message` and send it
+- [x] Use the `id` and `content` arguments to create a new `Message` and send it
       as the body of a POST request to `https://postman-echo.com/post`. (All
       this endpoint does is sends the same data back in a slightly different
       format, it's generally used for testing purposes.)
 
-- [ ] Return the body of the response directly, i.e. return a string of JSON
+- [x] Return the body of the response directly, i.e. return a string of JSON
       rather than an object.
 
 > [!WARNING]
