@@ -47,7 +47,7 @@ public class PokeAPI {
             .asString();
 
     String json = response.getBody();
-//    System.out.println("JSON Response: " + json);
+//    System.out.println(json);
 
     // TODO: Parse the response body into a Pokemon object
     // Hint: Use Jackson's ObjectMapper to map the response body to Pokemon.class
