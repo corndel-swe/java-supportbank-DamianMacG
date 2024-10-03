@@ -20,12 +20,12 @@ SECRET_PASSWORD=opensesame
 In this exercise, we'll be fetching data from the
 [PokeAPI](https://pokeapi.co/docs/v2).
 
-- [ ] Have a look at the documentation on
+- [x] Have a look at the documentation on
       [fetching data](https://tech-docs.corndel.com/java/fetching-data.html).
 
-- [ ] Open `exercises/pokeAPI.java`.
+- [x] Open `exercises/pokeAPI.java`.
 
-- [ ] Complete the static method `getPokemonByName(name)`. It should
+- [x] Complete the static method `getPokemonByName(name)`. It should
 
   - make a `GET` request to `"https://pokeapi.co/api/v2/pokemon/" + name`
 
