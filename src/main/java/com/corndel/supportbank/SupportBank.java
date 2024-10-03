@@ -5,7 +5,9 @@ import com.corndel.supportbank.controllers.CurrencyController;
 import com.corndel.supportbank.controllers.InvestmentController;
 import com.corndel.supportbank.controllers.TransactionController;
 import com.corndel.supportbank.services.InvestmentService;
+import kong.unirest.Unirest;
 import picocli.CommandLine;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.util.Arrays;
 
@@ -14,6 +16,7 @@ import picocli.CommandLine.Command;
 
 @Command(name = "supportbank", subcommands = {BillController.class, CurrencyController.class, InvestmentController.class, TransactionController.class})
 public class SupportBank implements Runnable {
+
 
   public static void main(String[] args) {
     CommandLine commandLine = new CommandLine(new SupportBank());
