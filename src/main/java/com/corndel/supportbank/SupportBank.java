@@ -1,5 +1,6 @@
 package com.corndel.supportbank;
 
+import com.corndel.supportbank.commands.FetchRatesCommand;
 import com.corndel.supportbank.controllers.BillController;
 import com.corndel.supportbank.controllers.CurrencyController;
 import com.corndel.supportbank.controllers.InvestmentController;
@@ -14,7 +15,7 @@ import java.util.Arrays;
 import picocli.CommandLine.Command;
 
 
-@Command(name = "supportbank", subcommands = {BillController.class, CurrencyController.class, InvestmentController.class, TransactionController.class})
+@Command(name = "supportbank", subcommands = {BillController.class, CurrencyController.class, InvestmentController.class, TransactionController.class, FetchRatesCommand.class})
 public class SupportBank implements Runnable {
 
 
