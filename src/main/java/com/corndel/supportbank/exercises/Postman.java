@@ -2,6 +2,8 @@ package com.corndel.supportbank.exercises;
 
 // import kong.unirest.Unirest;
 
+import kong.unirest.Unirest;
+
 /**
  * This class represents a Message to be sent to the Postman Echo API.
  * You don't need to modify it.
@@ -17,23 +19,23 @@ class Message {
 }
 
 public class Postman {
-  /**
-   * Echoes a message with a given id and content to the Postman Echo API, and
-   * returns the response as a string.
-   *
-   * @param id      The id of the message
-   * @param content The content of the message
-   *
-   * @return The response body from the Postman Echo API
-   */
+
   public static String echoMessage(int id, String content) {
     // TODO: Create a Message object with the given id and content
+
+    Message message = new Message(id, content);
 
     // TODO: Post the Message object to the Postman Echo API
     // Hint: Use Unirest.post()
 
+    String url = "https://postman-echo.com/post";
+    var response = Unirest.post(url)
+            .header("Content-Type", "application/json")
+            .body(message)
+            .asString();
+
     // TODO: Return the response body as a string of JSON
-    return null;
+    return response.getBody();
   }
 
   /**
