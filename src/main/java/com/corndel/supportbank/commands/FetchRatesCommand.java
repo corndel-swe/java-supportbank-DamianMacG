@@ -8,11 +8,11 @@ public class FetchRatesCommand implements Runnable {
     private final FetchExchangeRates fetcher;
 
     public FetchRatesCommand() {
-        this.fetcher = new FetchExchangeRates(); // Initialize your fetcher here
+        this.fetcher = new FetchExchangeRates();
     }
 
     @Override
     public void run() {
-        fetcher.fetchRates(); // Call the fetch method
+        fetcher.fetchRates();
     }
 }

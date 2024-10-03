@@ -14,12 +14,12 @@ public class FetchExchangeRates {
 
     // Constructor
     public FetchExchangeRates() {
-        // Load environment variables from .env file
+
         Dotenv dotenv = Dotenv.load();
         this.OPEN_EXCHANGE_RATES_APP_ID = dotenv.get("OPEN_EXCHANGE_RATES_APP_ID");
     }
 
-    // Method to fetch exchange rates
+
     public void fetchRates() {
         String url = "https://openexchangerates.org/api/latest.json?app_id=" + OPEN_EXCHANGE_RATES_APP_ID;
 
@@ -28,11 +28,11 @@ public class FetchExchangeRates {
                 .header("Accept", "application/json")
                 .asString();
 
-        // Parse the response body
+
         String json = response.getBody();
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Double> exchangeRates = new HashMap<>(); // Create a HashMap to store rates
+        Map<String, Double> exchangeRates = new HashMap<>();
 
         try {
             JsonNode ratesNode = objectMapper.readTree(json).get("rates");
