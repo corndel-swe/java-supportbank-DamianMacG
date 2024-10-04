@@ -2,30 +2,30 @@
 
 ## Exercise 1: Environment variables
 
-- [ ] Have a look at the documentation on
+- [x] Have a look at the documentation on
       [environment variables](https://tech-docs.corndel.com/java/environment-variables.html)
 
-- [ ] Create a `.env` file in the root of your project
+- [x] Create a `.env` file in the root of your project
 
-- [ ] Add the following environment variable:
+- [x] Add the following environment variable:
 
 ```
 SECRET_PASSWORD=opensesame
 ```
 
-- [ ] Test, commit and push!
+- [x] Test, commit and push!
 
 ## Exercise 2: GET Requests
 
 In this exercise, we'll be fetching data from the
 [PokeAPI](https://pokeapi.co/docs/v2).
 
-- [ ] Have a look at the documentation on
+- [x] Have a look at the documentation on
       [fetching data](https://tech-docs.corndel.com/java/fetching-data.html).
 
-- [ ] Open `exercises/pokeAPI.java`.
+- [x] Open `exercises/pokeAPI.java`.
 
-- [ ] Complete the static method `getPokemonByName(name)`. It should
+- [x] Complete the static method `getPokemonByName(name)`. It should
 
   - make a `GET` request to `"https://pokeapi.co/api/v2/pokemon/" + name`
 
@@ -36,17 +36,17 @@ In this exercise, we'll be fetching data from the
 
 ## Exercise 3: POST Requests
 
-- [ ] Have a look at the documentation on
+- [x] Have a look at the documentation on
       [posting data](https://tech-docs.corndel.com/java/http-post.html)
 
-- [ ] Open `exercises/Postman.java`
+- [x] Open `exercises/Postman.java`
 
-- [ ] Use the `id` and `content` arguments to create a new `Message` and send it
+- [x] Use the `id` and `content` arguments to create a new `Message` and send it
       as the body of a POST request to `https://postman-echo.com/post`. (All
       this endpoint does is sends the same data back in a slightly different
       format, it's generally used for testing purposes.)
 
-- [ ] Return the body of the response directly, i.e. return a string of JSON
+- [x] Return the body of the response directly, i.e. return a string of JSON
       rather than an object.
 
 > [!WARNING]
