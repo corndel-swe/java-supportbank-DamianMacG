@@ -73,6 +73,6 @@ public class NewsAPIService {
 
     public static void main(String[] args) throws JsonProcessingException {
         NewsAPIService newsService = new NewsAPIService();
-        newsService.fetchNewsByAuthor("Null"); // Searching for articles by this author
+        newsService.fetchNewsByAuthor("James"); // Searching for articles by this author
     }
 }
