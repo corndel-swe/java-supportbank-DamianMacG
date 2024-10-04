@@ -28,10 +28,6 @@ public class CurrencyConverter {
         String json = response.getBody();
         JsonNode ratesNode = objectMapper.readTree(json).get("rates");
 
-        if (ratesNode.get(fromCurrency) == null || ratesNode.get(toCurrency) == null) {
-            throw new Exception("Error sozziiiii");
-        }
-
         double fromConversion = ratesNode.get(fromCurrency).asDouble();
         double toConversion = ratesNode.get(toCurrency).asDouble();
 
