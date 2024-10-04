@@ -22,7 +22,6 @@ public class NewsAPIService {
     }
 
     public void fetchNewsByAuthor(String authorName) throws JsonProcessingException {
-        // Using the keyword as a placeholder in the URL
         String url = String.format("https://newsapi.org/v2/everything?q=keyword&apiKey=%s", apiKey);
 
         var response = Unirest
@@ -30,6 +29,7 @@ public class NewsAPIService {
                 .header("Accept", "application/json")
                 .asString();
 
+        // Checking response status is good
         if (response.getStatus() == 200) {
             String json = response.getBody();
             JsonNode ratesNode = objectMapper.readTree(json);
@@ -49,13 +49,12 @@ public class NewsAPIService {
 
                     if (author.toLowerCase().contains(authorName.toLowerCase())) {
                         matchingAuthors.add(author); // Store unique authors
-                        // Print article details
                         System.out.println("Author: " + author);
                         System.out.println("Article: " + article.toPrettyString());
                     }
                 }
 
-//                 Print all matching authors found
+                //Print all matching authors found
                 if (!matchingAuthors.isEmpty()) {
                     System.out.println("Matching Authors:");
                     for (String uniqueAuthor : matchingAuthors) {
@@ -73,14 +72,17 @@ public class NewsAPIService {
     }
 
     public static void main(String[] args) throws JsonProcessingException {
-        Scanner scanner = new Scanner(System.in); // Create a scanner for user input
+        Scanner scanner = new Scanner(System.in);
         NewsAPIService newsService = new NewsAPIService();
 
         System.out.print("Enter the author's name or part of the name to search for articles: ");
-        String authorName = scanner.nextLine(); // Read user input
 
-        newsService.fetchNewsByAuthor(authorName); // Fetch news by the author name provided by the user
+        // Saves users input to a variable
+        String authorName = scanner.nextLine();
 
-        scanner.close(); // Close the scanner
+        // Fetch news by the author name or characters provided by the user
+        newsService.fetchNewsByAuthor(authorName);
+
+        scanner.close();
     }
 }
