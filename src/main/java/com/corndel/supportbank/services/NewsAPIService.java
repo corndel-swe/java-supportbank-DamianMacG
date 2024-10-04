@@ -8,6 +8,7 @@ import kong.unirest.Unirest;
 
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Set;
 
 public class NewsAPIService {
@@ -72,7 +73,14 @@ public class NewsAPIService {
     }
 
     public static void main(String[] args) throws JsonProcessingException {
+        Scanner scanner = new Scanner(System.in); // Create a scanner for user input
         NewsAPIService newsService = new NewsAPIService();
-        newsService.fetchNewsByAuthor("James"); // Searching for articles by this author
+
+        System.out.print("Enter the author's name or part of the name to search for articles: ");
+        String authorName = scanner.nextLine(); // Read user input
+
+        newsService.fetchNewsByAuthor(authorName); // Fetch news by the author name provided by the user
+
+        scanner.close(); // Close the scanner
     }
 }
